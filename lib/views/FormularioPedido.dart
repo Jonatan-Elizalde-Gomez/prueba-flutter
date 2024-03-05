@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
-import 'mostrarModalDeFirma.dart'; // Asegúrate de tener el path correcto
+import 'mostrarModalDeFirma.dart';
 
 class FormularioPedido extends StatefulWidget {
   @override
@@ -8,9 +8,8 @@ class FormularioPedido extends StatefulWidget {
 }
 
 class _FormularioPedidoState extends State<FormularioPedido> {
-  Uint8List? firmaImagen; // Almacena la imagen de la firma como datos Uint8List
-  final TextEditingController _productoController =
-      TextEditingController(); // Controlador para el campo del producto
+  Uint8List? firmaImagen;
+  final TextEditingController _productoController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +27,8 @@ class _FormularioPedidoState extends State<FormularioPedido> {
                   child: TextField(
                     controller: _productoController,
                     decoration: InputDecoration(
-                      labelText: 'Producto', // Etiqueta del campo de texto
-                      border: OutlineInputBorder(), // Borde del campo de texto
+                      labelText: 'Producto',
+                      border: OutlineInputBorder(),
                     ),
                   ),
                 ),
@@ -38,7 +37,7 @@ class _FormularioPedidoState extends State<FormularioPedido> {
                   child: GestureDetector(
                     onTap: () => mostrarModalDeFirma(context, (Uint8List data) {
                       setState(() {
-                        firmaImagen = data; // Actualiza la imagen de la firma
+                        firmaImagen = data;
                       });
                     }),
                     child: Container(
@@ -54,8 +53,7 @@ class _FormularioPedidoState extends State<FormularioPedido> {
                               borderRadius: BorderRadius.circular(8),
                               child: Image.memory(
                                 firmaImagen!,
-                                fit: BoxFit
-                                    .contain, // Ajusta la imagen para que se adapte al contenedor
+                                fit: BoxFit.contain,
                               ),
                             )
                           : Center(
@@ -73,14 +71,12 @@ class _FormularioPedidoState extends State<FormularioPedido> {
                     ),
                   ),
                 ),
-
                 ElevatedButton(
                   onPressed: () {
                     _mostrarRecibo(context);
                   },
                   child: Text('Enviar'),
                 ),
-                // Añade aquí más elementos del formulario según sea necesario
               ],
             ),
           ),
@@ -124,7 +120,6 @@ class _FormularioPedidoState extends State<FormularioPedido> {
 
   @override
   void dispose() {
-    // Limpia el controlador cuando el Widget se descarte
     _productoController.dispose();
     super.dispose();
   }

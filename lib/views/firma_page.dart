@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:prueba_tecnica_firma/controllers/firma_controller.dart';
-import 'landing_page.dart'; // Importa tu LandingPage
+import 'landing_page.dart';
 
 class FirmaPage extends StatefulWidget {
   @override
@@ -41,8 +41,7 @@ class _FirmaPageState extends State<FirmaPage> {
           });
         },
         onPanEnd: (details) {
-          points.add(Offset
-              .infinite); // Usamos Offset.infinite para separar las líneas
+          points.add(Offset.infinite);
         },
         child: CustomPaint(
           size: Size.infinite,

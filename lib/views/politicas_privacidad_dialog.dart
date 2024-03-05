@@ -26,7 +26,6 @@ class _PoliticasPrivacidadDialogState extends State<PoliticasPrivacidadDialog> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            // Colocar el switch a la izquierda
             Switch(
               value: _switchValue,
               onChanged: (bool value) {
@@ -35,7 +34,6 @@ class _PoliticasPrivacidadDialogState extends State<PoliticasPrivacidadDialog> {
                 });
               },
             ),
-            // Usar Flexible para el botón permite que se ajuste el texto si hay poco espacio
             Flexible(
               child: TextButton(
                 child: Text('Acepto'),
@@ -47,8 +45,7 @@ class _PoliticasPrivacidadDialogState extends State<PoliticasPrivacidadDialog> {
                             .pop(); // Primero cierras el diálogo
                         Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  LandingPage()), // Asume que HomePage es tu página principal
+                              builder: (context) => LandingPage()),
                           (Route<dynamic> route) => false,
                         );
                       }
@@ -58,7 +55,6 @@ class _PoliticasPrivacidadDialogState extends State<PoliticasPrivacidadDialog> {
           ],
         ),
       ],
-      // Ajuste para que el AlertDialog sea más ancho y acomode mejor los widgets
       contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
       actionsPadding: EdgeInsets.symmetric(horizontal: 10.0),
     );

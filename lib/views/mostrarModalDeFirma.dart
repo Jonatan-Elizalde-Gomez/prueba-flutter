@@ -19,9 +19,7 @@ void mostrarModalDeFirma(
             if (snapshot.hasError) {
               return Text("Error: ${snapshot.error}");
             }
-            final firmas = snapshot.data!
-                .take(3)
-                .toList(); // Tomamos solo las primeras 3 firmas
+            final firmas = snapshot.data!.take(3).toList();
 
             return FractionallySizedBox(
               heightFactor: 0.9,
@@ -47,7 +45,7 @@ void mostrarModalDeFirma(
                           title: Text('Firma'),
                           onTap: () {
                             Navigator.of(context).pop();
-                            onSelectFirma(image); // Pasamos la imagen de vuelta
+                            onSelectFirma(image);
                           },
                         );
                       },
